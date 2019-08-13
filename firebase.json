@@ -2,16 +2,10 @@
   "hosting": {
     "public": "build",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "cleanUrls": true,
-    "headers": [
+    "rewrites": [
       {
-        "source": "/@(static|images)/**/*",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "max-age=31557600"
-          }
-        ]
+        "source": "**",
+        "destination": "/index.html"
       }
     ]
   }
