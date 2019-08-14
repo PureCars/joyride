@@ -1,162 +1,250 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import isPropValid from '@emotion/is-prop-valid'
-import styled from '@emotion/styled/macro'
+import upperFirst from 'lodash/upperFirst'
+import reduce from 'lodash/reduce'
+import classnames from 'classnames'
+import { withStyles } from '@material-ui/styles'
+import { TypographyBase } from './styles'
 
-const colorMappers = {
-  inherit: () => 'inherit',
-  primary: theme => theme.palette.primary.default,
-  secondary: theme => theme.palette.secondary.default,
-  textPrimary: theme => theme.palette.text.primary,
-  textSecondary: theme => theme.palette.text.secondary,
-  accent: theme => theme.palette.accent,
-  error: theme => theme.palette.error
+/**
+ * Boosts the specificity of the CSS selectors used for variants and colors
+ * so that they are higher than the MUI ones; that way our styles are always
+ * prioritized by browsers.
+ */
+const boostCssSpecificity = style => ({
+  '&&': style
+})
+/**
+ * Defines typography colors and selectors to get their values from the theme.
+ */
+export const colorSelectors = {
+  textPrimary: () => '',
+  textSecondary: () => '',
+  textDark: () => '',
+  primary: () => '',
+  secondary: () => '',
+  success: () => '',
+  error: () => '',
+  inverse: () => '',
+  inherit: () => 'inherit'
 }
 
-function getColor(theme, color) {
-  const colorMapper = colorMappers[color]
-  return colorMapper(theme)
-}
+/**
+ * Gets the key to use for a given color name.
+ */
+const getColorKey = color => `color${upperFirst(color)}`
 
-const TypographyBase = styled('span', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'display' && prop !== 'color'
-})(
-  ({
-    align = 'inherit',
-    color = 'initial',
-    display = 'initial',
-    gutterBottom = false,
-    noWrap = false,
-    paragraph = false,
-    theme,
-    variant
-  }) => ({
-    margin: 0,
-    ...(variant !== 'inherit' && theme.typography[variant]),
-    ...(variant === 'srOnly' && {
-      position: 'absolute',
-      height: 1,
-      width: 1,
-      overflow: 'hidden'
-    }),
-    ...(color !== 'initial' && {
-      color: getColor(theme, color)
-    }),
-    ...(noWrap && {
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap'
-    }),
-    ...(gutterBottom && {
-      marginBottom: '0.35em'
-    }),
-    ...(paragraph && {
-      marginBottom: 16
-    }),
-    ...(align !== 'inherit' && {
-      textAlign: align
-    }),
-    ...(display !== 'initial' && {
-      display
-    })
-  })
-)
-
-const defaultVariantMapping = {
-  h1: 'h1',
-  h2: 'h2',
-  h3: 'h3',
-  h4: 'h4',
-  h5: 'h5',
-  h6: 'h6',
-  subtitle1: 'h6',
-  subtitle2: 'h6',
-  body1: 'p',
-  body2: 'p'
-}
-
-export const Typography = React.forwardRef(function Typography(props, ref) {
-  const { component, variant = 'body1', variantMapping = defaultVariantMapping, ...other } = props
-
-  const Component =
-    component ||
-    (other.paragraph ? 'p' : variantMapping[variant] || defaultVariantMapping[variant]) ||
-    'span'
-
-  return <TypographyBase as={Component} variant={variant} ref={ref} {...other} />
+/**
+ * Defines styles that will be passed as `classes` to Typography.
+ */
+const styles = theme => ({
+  h1: {
+    fontSize: 48,
+    lineHeight: 1.5,
+    fontWeight: 'bold'
+  },
+  h2: {
+    fontSize: 32,
+    lineHeight: 1.5,
+    fontWeight: 600
+  },
+  h3: {
+    fontSize: 24,
+    lineHeight: 1.5,
+    fontWeight: 600
+  },
+  h4: {
+    fontSize: 24,
+    lineHeight: 1.5
+  },
+  h5: {
+    fontSize: 16,
+    lineHeight: 1.5,
+    fontWeight: 600
+  },
+  h6: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    lineHeight: 1.5
+  },
+  h7: {
+    fontSize: 12,
+    lineHeight: 1.5,
+    fontWeight: 600
+  },
+  body1: {
+    fontSize: 16,
+    lineHeight: 1.5
+  },
+  body2: {
+    fontSize: 14,
+    lineHeight: 1.5
+  },
+  body3: {
+    fontSize: 12,
+    lineHeight: 1.5
+  },
+  body4: {
+    fontSize: 10,
+    lineHeight: 1.5,
+    fontWeight: 600
+  },
+  colorTextPrimary: {
+    color: '#212121'
+  },
+  colorTextSecondary: {
+    color: '#616161'
+  },
+  colorDisabled: {
+    color: '#9e9e9e'
+  },
+  colorPrimary: {
+    color: theme.palette.primary.main
+  },
+  colorError: {
+    color: theme.palette.error.main
+  }
 })
 
-Typography.propTypes = {
-  /**
-   * Set the text-align on the component.
-   */
-  align: PropTypes.oneOf(['inherit', 'left', 'center', 'right', 'justify']),
-  /**
-   * The content of the component.
-   */
-  children: PropTypes.node,
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
-   */
-  color: PropTypes.oneOf([
-    'initial',
-    'inherit',
-    'primary',
-    'secondary',
-    'textPrimary',
-    'textSecondary',
-    'accent',
-    'error'
-  ]),
-  /**
-   * The component used for the root node.
-   * Either a string to use a DOM element or a component.
-   * By default, it maps the variant to a good default headline component.
-   */
-  component: PropTypes.elementType,
-  /**
-   * Controls the display type
-   */
-  display: PropTypes.oneOf(['initial', 'block', 'inline']),
-  /**
-   * If `true`, the text will have a bottom margin.
-   */
-  gutterBottom: PropTypes.bool,
-  /**
-   * If `true`, the text will not wrap, but instead will truncate with an ellipsis.
-   */
-  noWrap: PropTypes.bool,
-  /**
-   * If `true`, the text will have a bottom margin.
-   */
-  paragraph: PropTypes.bool,
-  /**
-   * Applies the theme typography styles.
-   */
-  variant: PropTypes.oneOf([
-    'h1',
-    'h2',
-    'h3',
-    'h4',
-    'h5',
-    'h6',
-    'subtitle1',
-    'subtitle2',
-    'body1',
-    'body2',
-    'caption',
-    'button',
-    'overline',
-    'srOnly',
-    'inherit'
-  ]),
-  /**
-   * We are empirically mapping the variant prop to a range of different DOM element types.
-   * For instance, subtitle1 to `<h6>`.
-   * If you wish to change that mapping, you can provide your own.
-   * Alternatively, you can use the `component` prop.
-   */
-  variantMapping: PropTypes.object
+/**
+ * This wraps the standard material ui Typography component and intercepts
+ * a couple of props to allow for custom definitions of colors and variants.
+ */
+export class Typography extends React.PureComponent {
+  static propTypes = {
+    /**
+     * This string will be used to get the color class.
+     * @default 'textPrimary'
+     * @type {string}
+     */
+    color: PropTypes.oneOf(Object.keys(colorSelectors).concat('default')),
+
+    /**
+     * The name of the custom signal font variant to use.
+     * variant is fully intercepted and never passed to muiTypography. If you want
+     * to use material ui's base variants, then use the prop muiVariant.
+     * This allows us to define a custom set of font types.
+     * @default 'body2'
+     * @type {string}
+     */
+    variant: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.oneOf([
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h6',
+        'subtitle1',
+        'subtitle2',
+        'body1',
+        'body2',
+        'body3',
+        'body4',
+        'caption'
+      ])
+    ]),
+
+    /**
+     * This prop will be passed to the wrapped MuiTypography component so that
+     * its variants can be used, if necessary. It's probably uncommon, if ever,
+     * that this will be used.
+     * @type {string}
+     */
+    muiVariant: PropTypes.oneOf([
+      'h1',
+      'h2',
+      'h3',
+      'h4',
+      'h5',
+      'h6',
+      'subtitle1',
+      'body1',
+      'body2',
+      'caption',
+      'button'
+    ]),
+
+    /**
+     * We are empirically mapping the variant property to a range of different
+     * DOM element types. For instance, h1 to <h1>. If you wish to change
+     * that mapping, you can provide your own. Alternatively, you can use the
+     * component property. The default mapping is the following:
+     * @default {
+     *   h1: 'h1',
+     *   h2: 'h2',
+     *   h3: 'h3',
+     *   h4: 'h4',
+     *   h5: 'h5',
+     *   h6: 'h6',
+     *   subtitle1: 'h6',
+     *   subtitle2: 'p',
+     *   body1: 'p',
+     *   body2: 'p',
+     *   body3: 'p',
+     *   body4: 'p',
+     *   caption: 'p',
+     * }
+     * @type {Object}
+     */
+    headlineMapping: PropTypes.object
+  }
+
+  static defaultProps = {
+    color: 'textPrimary',
+    variant: 'body2',
+    headlineMapping: {
+      h1: 'h1',
+      h2: 'h2',
+      h3: 'h3',
+      h4: 'h4',
+      h5: 'h5',
+      h6: 'h6',
+      subtitle1: 'h6',
+      subtitle2: 'p',
+      body1: 'p',
+      body2: 'p',
+      body3: 'p',
+      body4: 'p',
+      caption: 'p'
+    }
+  }
+
+  render() {
+    const {
+      classes,
+      className: classNameProp,
+      variant,
+      color,
+      muiVariant,
+      muiColor,
+      muiClasses,
+      component: componentProp,
+      headlineMapping,
+      ...rest
+    } = this.props
+    console.log(this.props)
+    const className = classnames(
+      classes[variant],
+      {
+        [classes[getColorKey(color)]]: color !== 'default'
+      },
+      classNameProp
+    )
+    const component = componentProp || headlineMapping[variant]
+    console.log(className)
+    return (
+      <TypographyBase
+        component={component}
+        className={className}
+        variant={muiVariant}
+        color={muiColor}
+        classes={muiClasses}
+        {...rest}
+      />
+    )
+  }
 }
 
-export default Typography
+export default withStyles(styles)(Typography)
