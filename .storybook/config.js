@@ -5,14 +5,14 @@ import {
 } from '@material-ui/styles'
 import { configure, addDecorator } from '@storybook/react'
 import requireContext from 'require-context.macro'
-import { ThemeProvider } from 'emotion-theming'
+import { ThemeProvider } from 'styled-components'
 import { light, mui } from '../src/themes'
 import 'storybook-chromatic'
 
 addDecorator(storyFn => (
   <StylesProvider injectFirst>
     <MuiThemeProvider them={mui}>
-      <ThemeProvider theme={light}>{storyFn()}</ThemeProvider>
+      <ThemeProvider theme={{ ...light, mui }}>{storyFn()}</ThemeProvider>
     </MuiThemeProvider>
   </StylesProvider>
 ))
