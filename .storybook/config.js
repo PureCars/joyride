@@ -1,12 +1,20 @@
 import React from 'react'
+import {
+  ThemeProvider as MuiThemeProvider,
+  StylesProvider
+} from '@material-ui/styles'
 import { configure, addDecorator } from '@storybook/react'
 import requireContext from 'require-context.macro'
 import { ThemeProvider } from 'emotion-theming'
-import { light } from '../src/themes'
+import { light, mui } from '../src/themes'
 import 'storybook-chromatic'
 
 addDecorator(storyFn => (
-  <ThemeProvider theme={light}>{storyFn()}</ThemeProvider>
+  <StylesProvider injectFirst>
+    <MuiThemeProvider them={mui}>
+      <ThemeProvider theme={light}>{storyFn()}</ThemeProvider>
+    </MuiThemeProvider>
+  </StylesProvider>
 ))
 
 const req = requireContext('../src/components', true, /\.stories\.js$/)
