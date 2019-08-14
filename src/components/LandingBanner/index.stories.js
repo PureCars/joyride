@@ -7,7 +7,7 @@ storiesOf('Components|LandingBanner', module).add('default', () => (
     title="Discover, drive, and buy with Joyride."
     form={() => <div>Nice Form</div>}
     image={
-      'https://di-uploads-pod16.dealerinspire.com/josephtoyotaofcincinnati/uploads/2018/10/toyota_camry2019_grey.png'
+      'https://firebasestorage.googleapis.com/v0/b/joyride-hacked.appspot.com/o/images%2Fvehicle.png?alt=media&token=319e2953-b093-4cd1-b2cb-2b1ee703ad04'
     }
   />
 ))
