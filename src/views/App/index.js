@@ -1,25 +1,40 @@
 import React from 'react'
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
+import {
+  createMuiTheme,
+  ThemeProvider as MuiThemeProvider,
+  StylesProvider
+} from '@material-ui/styles'
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from 'react-router-dom'
 import { ThemeProvider } from 'emotion-theming'
 import { light } from '../../themes'
 import { LoadableProvider } from '../../utils/loadable'
 import Page from '../../components/Page'
 import PricesView from '../Prices'
 
+const muiTheme = createMuiTheme()
 function App() {
   return (
-    <ThemeProvider theme={light}>
-      <LoadableProvider>
-        <Page>
-          <Router>
-            <Switch>
-              <Route path="/prices" component={PricesView} />
-              <Redirect exact from="/" to="/prices" />
-            </Switch>
-          </Router>
-        </Page>
-      </LoadableProvider>
-    </ThemeProvider>
+    <StylesProvider injectFirst>
+      <MuiThemeProvider theme={muiTheme}>
+        <ThemeProvider theme={light}>
+          <LoadableProvider>
+            <Page>
+              <Router>
+                <Switch>
+                  <Route path="/prices" component={PricesView} />
+                  <Redirect exact from="/" to="/prices" />
+                </Switch>
+              </Router>
+            </Page>
+          </LoadableProvider>
+        </ThemeProvider>
+      </MuiThemeProvider>
+    </StylesProvider>
   )
 }
 
