@@ -6,6 +6,6 @@ storiesOf('Components|ListToolbar', module)
   .add('default', () => (
     <ListToolbar
       resultCount={42}
-      chips={{}}
+      chips={[]}
     />
   ))
