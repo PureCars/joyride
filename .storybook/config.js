@@ -11,7 +11,7 @@ import 'storybook-chromatic'
 
 addDecorator(storyFn => (
   <StylesProvider injectFirst>
-    <MuiThemeProvider them={mui}>
+    <MuiThemeProvider theme={mui}>
       <ThemeProvider theme={{ ...light, mui }}>{storyFn()}</ThemeProvider>
     </MuiThemeProvider>
   </StylesProvider>
