@@ -9,6 +9,7 @@ import { mui } from '../../themes'
 import { LoadableProvider } from '../../utils/loadable'
 import HomeView from '../Home'
 import SearchView from '../Search'
+import VehicleView from '../Vehicle'
 
 function App() {
   return (
@@ -20,6 +21,11 @@ function App() {
               <Switch>
                 <Route exact path="/" component={HomeView} />
                 <Route exact path="/search" component={SearchView} />
+                <Route
+                  exact
+                  path="/vehicle/:vehicleId"
+                  component={VehicleView}
+                />
               </Switch>
             </Router>
           </LoadableProvider>
