@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { Typography } from "@material-ui/core"
+import styled from 'styled-components'
+import { Typography, Chip } from '@material-ui/core'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -28,4 +28,9 @@ export const LinkTypography = styled(Typography)`
     color: pink;
     cursor: pointer;
   }
+`
+
+export const StyledChip = styled(Chip)`
+  margin: 0 ${({ theme }) => theme.mui.spacing()}px 0
+    ${({ theme }) => theme.mui.spacing()}px;
 `

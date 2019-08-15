@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { TextField } from '@material-ui/core'
 import VehicleList from '../../components/VehicleList'
-// import ListToolbar from '../../components/ListToolbar'
+import { ListToolbar } from '../../components/ListToolbar'
 const queryString = require('query-string')
 
 function SearchForm() {
@@ -73,10 +73,25 @@ export default function SearchResultsLoadable(props) {
     fetchData()
   }, Object.values(queryParams))
 
+  const { year, make, model } = queryParams
+
   return (
     <div>
       <SearchForm />
-      {vehicles ? <VehicleList vehicles={vehicles} /> : 'loading...'}
+      {vehicles ? (
+        <div>
+          <ListToolbar
+            itemCount={vehicles.length}
+            chips={[year, make, model]}
+            onResetFilters={() => console.log('reset filters')}
+            onDeleteChip={chipName => console.log(`deleted ${chipName}`)}
+            onChangeSort={() => console.log('sort changed')}
+          />
+          <VehicleList vehicles={vehicles} />
+        </div>
+      ) : (
+        'loading...'
+      )}
     </div>
   )
 }

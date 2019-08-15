@@ -1,15 +1,16 @@
-import React from "react"
-import { Typography, MenuItem, IconButton, Menu, Chip } from "@material-ui/core"
+import React from 'react'
+import { Typography, MenuItem, IconButton, Menu } from '@material-ui/core'
 import {
   Wrapper,
   Chips,
   FilterInfo,
   SortSelect,
-  LinkTypography
-} from "./styles"
-import Tune from "@material-ui/icons/Tune"
+  LinkTypography,
+  StyledChip
+} from './styles'
+import Tune from '@material-ui/icons/Tune'
 
-const sortOptions = ["most recent to least", "least recent to most"]
+const sortOptions = ['most recent to least', 'least recent to most']
 
 export const ListToolbar = ({
   itemCount,
@@ -18,7 +19,7 @@ export const ListToolbar = ({
   onDeleteChip,
   onChangeSort
 }) => {
-  const [sortOrder, setSortOrder] = React.useState("most recent to least")
+  const [sortOrder, setSortOrder] = React.useState('most recent to least')
 
   const [anchorEl, setAnchorEl] = React.useState(null)
   const sortMenuOpen = Boolean(anchorEl)
@@ -47,7 +48,7 @@ export const ListToolbar = ({
         <Typography variant="h6">{itemCount} results</Typography>
         <Chips>
           {chips.map(chip => (
-            <Chip label={chip} onDelete={createHandleChipDelete(chip)} />
+            <StyledChip label={chip} onDelete={createHandleChipDelete(chip)} />
           ))}
         </Chips>
         {chips.length > 0 && (
