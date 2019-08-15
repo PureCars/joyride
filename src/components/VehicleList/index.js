@@ -1,11 +1,11 @@
 import React from 'react'
 import VehicleCard from '../VehicleCard'
-import { ListWrapper, CardWrapper } from './styles'
+import { ListWrapper, CardLink } from './styles'
 
 const VehicleList = ({ vehicles }) => (
   <ListWrapper>
     {vehicles.map(i => (
-      <CardWrapper>
+      <CardLink>
         <VehicleCard
           imageUrl={i.imageUrl}
           title={i.title}
@@ -13,7 +13,7 @@ const VehicleList = ({ vehicles }) => (
           price={i.price}
           payment={i.payment}
         />
-      </CardWrapper>
+      </CardLink>
     ))}
   </ListWrapper>
 )
