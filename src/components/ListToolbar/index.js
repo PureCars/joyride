@@ -48,7 +48,10 @@ export const ListToolbar = ({
         <Typography variant="h6">{itemCount} results</Typography>
         <Chips>
           {chips.map(chip => (
-            <StyledChip label={chip} onDelete={createHandleChipDelete(chip)} />
+            <StyledChip
+              label={chip.value}
+              onDelete={createHandleChipDelete(chip.key)}
+            />
           ))}
         </Chips>
         {chips.length > 0 && (

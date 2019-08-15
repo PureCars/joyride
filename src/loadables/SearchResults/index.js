@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { TextField } from '@material-ui/core'
 import VehicleList from '../../components/VehicleList'
 import { ListToolbar } from '../../components/ListToolbar'
+import omit from 'lodash/omit'
 const queryString = require('query-string')
 
 function SearchForm() {
@@ -50,7 +51,6 @@ async function getVehicleResults({ year, make, model }) {
   )
 
   const responseJson = await response.json()
-  console.log(responseJson)
 
   return responseJson.map(result => ({
     imageUrl: result.photo.url.thumb,
@@ -62,18 +62,25 @@ async function getVehicleResults({ year, make, model }) {
 }
 
 export default function SearchResultsLoadable(props) {
-  const queryParams = queryString.parse(props.queryParams)
+  const [queryParams, setQueryParams] = useState(
+    queryString.parse(props.queryParams)
+  )
   const [vehicles, setVehicles] = useState()
   useEffect(() => {
     async function fetchData() {
       const results = await getVehicleResults(queryParams)
-      console.log(results)
       setVehicles(results)
     }
     fetchData()
-  }, Object.values(queryParams))
+  }, [queryParams])
 
-  const { year, make, model } = queryParams
+  function handleChipDelete(key) {
+    setQueryParams(omit(queryParams, key))
+  }
+
+  function handleResetFilters() {
+    setQueryParams({})
+  }
 
   return (
     <div>
@@ -82,9 +89,12 @@ export default function SearchResultsLoadable(props) {
         <div>
           <ListToolbar
             itemCount={vehicles.length}
-            chips={[year, make, model]}
-            onResetFilters={() => console.log('reset filters')}
-            onDeleteChip={chipName => console.log(`deleted ${chipName}`)}
+            chips={Object.keys(queryParams).map(key => ({
+              key: key,
+              value: queryParams[key]
+            }))}
+            onResetFilters={handleResetFilters}
+            onDeleteChip={key => handleChipDelete(key)}
             onChangeSort={() => console.log('sort changed')}
           />
           <VehicleList vehicles={vehicles} />
