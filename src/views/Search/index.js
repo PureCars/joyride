@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import SearchResultsLoadable from '../../loadables/SearchResults'
 import SearchForm from '../../loadables/SearchForm'
+import FilterForm from '../../loadables/FilterForm'
 import NavBar from '../../loadables/NavBar'
 
 const PageWrapper = styled.div`
@@ -32,7 +33,9 @@ export default function SearchView(props) {
           onSubmit={search => history.push(`/search?${search}`)}
         />
       </NavBar>
-      <Sidenav>test</Sidenav>
+      <Sidenav>
+        <FilterForm />
+      </Sidenav>
       <PageWrapper>
         <SearchResultsLoadable queryParams={search} history={history} />
       </PageWrapper>

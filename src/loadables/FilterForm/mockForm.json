@@ -1,0 +1,1260 @@
+{
+  "version": 1,
+  "error-message": "This is a hardcoded error message for testing.",
+  "number-of-matches": 553263,
+  "search-token": "afakesearchtoken",
+  "criteria-gui": [
+    {
+      "widget-type": "radio",
+      "widget-data": {
+        "values": [
+          {
+            "value": "Any",
+            "display-value": "Any"
+          },
+          {
+            "value": "New",
+            "display-value": "New"
+          },
+          {
+            "value": "Used",
+            "display-value": "Used"
+          }
+        ],
+        "criterion": "vehicle-condition",
+        "display-title": "Condition",
+        "selected-values": ["Any"],
+        "enabled": true,
+        "selection-style": "single"
+      }
+    },
+    {
+      "widget-type": "distance",
+      "widget-data": {
+        "values": [
+          {
+            "value": "10 Miles",
+            "display-value": "10 Miles"
+          },
+          {
+            "value": "20 Miles",
+            "display-value": "20 Miles"
+          },
+          {
+            "value": "30 Miles",
+            "display-value": "30 Miles"
+          },
+          {
+            "value": "40 Miles",
+            "display-value": "40 Miles"
+          },
+          {
+            "value": "50 Miles",
+            "display-value": "50 Miles"
+          },
+          {
+            "value": "50+ Miles",
+            "display-value": "50+ Miles"
+          }
+        ],
+        "criterion": "distance",
+        "display-title": "Location",
+        "selected-values": ["30316", "50+ Miles"],
+        "enabled": true,
+        "selection-style": "single"
+      }
+    },
+    {
+      "widget-type": "list",
+      "widget-data": {
+        "values": [
+          {
+            "value": "All",
+            "display-value": "All"
+          },
+          {
+            "value": "Car",
+            "display-value": "Car"
+          },
+          {
+            "value": "SUV",
+            "display-value": "SUV"
+          },
+          {
+            "value": "Truck",
+            "display-value": "Truck"
+          },
+          {
+            "value": "Van",
+            "display-value": "Van"
+          }
+        ],
+        "criterion": "body",
+        "display-title": "Body",
+        "selected-values": ["All"],
+        "enabled": true,
+        "selection-style": "single"
+      }
+    },
+    {
+      "widget-type": "parent-child",
+      "widget-data": {
+        "parent": {
+          "widget-type": "radio",
+          "widget-data": {
+            "values": [
+              {
+                "value": "Monthly Payment",
+                "display-value": "Monthly Payment"
+              },
+              {
+                "value": "Full Price",
+                "display-value": "Full Price"
+              }
+            ],
+            "criterion": "price",
+            "display-title": "Price",
+            "selected-values": ["Monthly Payment"],
+            "enabled": true,
+            "selection-style": "single"
+          }
+        },
+        "values": [
+          {
+            "value": "Monthly Payment",
+            "display-value": "Monthly Payment",
+            "child-widget": {
+              "widget-type": "range",
+              "widget-data": {
+                "values": [
+                  {
+                    "value": "< $150",
+                    "display-value": "< $150"
+                  },
+                  {
+                    "value": "$200",
+                    "display-value": "$200"
+                  },
+                  {
+                    "value": "$300",
+                    "display-value": "$300"
+                  },
+                  {
+                    "value": "$400",
+                    "display-value": "$400"
+                  },
+                  {
+                    "value": "$500",
+                    "display-value": "$500"
+                  },
+                  {
+                    "value": "> $500",
+                    "display-value": "> $500"
+                  }
+                ],
+                "criterion": "Monthly Payment",
+                "display-title": "Monthly Payment",
+                "selected-values": ["< $150", "> $500"],
+                "enabled": true,
+                "selection-style": "multiple"
+              }
+            }
+          },
+          {
+            "value": "Full Price",
+            "display-value": "Full Price",
+            "child-widget": {
+              "widget-type": "range",
+              "widget-data": {
+                "values": [
+                  {
+                    "value": "< $20k",
+                    "display-value": "< $20k"
+                  },
+                  {
+                    "value": "$20k",
+                    "display-value": "$20k"
+                  },
+                  {
+                    "value": "$30k",
+                    "display-value": "$30k"
+                  },
+                  {
+                    "value": "$40k",
+                    "display-value": "$40k"
+                  },
+                  {
+                    "value": "$50k",
+                    "display-value": "$50k"
+                  },
+                  {
+                    "value": "> $50k",
+                    "display-value": "> $50k"
+                  }
+                ],
+                "criterion": "Full Price",
+                "display-title": "Full Price",
+                "selected-values": ["< $20k", "> $50k"],
+                "enabled": true,
+                "selection-style": "multiple"
+              }
+            }
+          }
+        ],
+        "criterion": "price",
+        "display-title": "Price",
+        "selected-values": ["Monthly Payment", "< $150", "> $500"],
+        "enabled": true,
+        "selection-style": "single"
+      }
+    },
+    {
+      "widget-type": "range",
+      "widget-data": {
+        "values": [
+          {
+            "value": "2009",
+            "display-value": "2009"
+          },
+          {
+            "value": "2010",
+            "display-value": "2010"
+          },
+          {
+            "value": "2011",
+            "display-value": "2011"
+          },
+          {
+            "value": "2012",
+            "display-value": "2012"
+          },
+          {
+            "value": "2013",
+            "display-value": "2013"
+          },
+          {
+            "value": "2014",
+            "display-value": "2014"
+          },
+          {
+            "value": "2015",
+            "display-value": "2015"
+          },
+          {
+            "value": "2016",
+            "display-value": "2016"
+          },
+          {
+            "value": "2017",
+            "display-value": "2017"
+          },
+          {
+            "value": "2018",
+            "display-value": "2018"
+          },
+          {
+            "value": "2019",
+            "display-value": "2019"
+          },
+          {
+            "value": "Latest Available",
+            "display-value": "Latest Available"
+          }
+        ],
+        "criterion": "year",
+        "display-title": "Year",
+        "selected-values": ["2009", "Latest Available"],
+        "enabled": true,
+        "selection-style": "multiple"
+      }
+    },
+    {
+      "widget-type": "list",
+      "widget-data": {
+        "values": [
+          {
+            "value": "All",
+            "display-value": "All"
+          },
+          {
+            "value": "Acura",
+            "display-value": "Acura"
+          },
+          {
+            "value": "Alfa Romeo",
+            "display-value": "Alfa Romeo"
+          },
+          {
+            "value": "Aston Martin",
+            "display-value": "Aston Martin"
+          },
+          {
+            "value": "Audi",
+            "display-value": "Audi"
+          },
+          {
+            "value": "Bentley",
+            "display-value": "Bentley"
+          },
+          {
+            "value": "BMW",
+            "display-value": "BMW"
+          },
+          {
+            "value": "Buick",
+            "display-value": "Buick"
+          },
+          {
+            "value": "Cadillac",
+            "display-value": "Cadillac"
+          },
+          {
+            "value": "Chevrolet",
+            "display-value": "Chevrolet"
+          },
+          {
+            "value": "Chrysler",
+            "display-value": "Chrysler"
+          },
+          {
+            "value": "Dodge",
+            "display-value": "Dodge"
+          },
+          {
+            "value": "Ferrari",
+            "display-value": "Ferrari"
+          },
+          {
+            "value": "FIAT",
+            "display-value": "FIAT"
+          },
+          {
+            "value": "Ford",
+            "display-value": "Ford"
+          },
+          {
+            "value": "Freightliner",
+            "display-value": "Freightliner"
+          },
+          {
+            "value": "Genesis",
+            "display-value": "Genesis"
+          },
+          {
+            "value": "GMC",
+            "display-value": "GMC"
+          },
+          {
+            "value": "Honda",
+            "display-value": "Honda"
+          },
+          {
+            "value": "Hyundai",
+            "display-value": "Hyundai"
+          },
+          {
+            "value": "INFINITI",
+            "display-value": "INFINITI"
+          },
+          {
+            "value": "Jaguar",
+            "display-value": "Jaguar"
+          },
+          {
+            "value": "Jeep",
+            "display-value": "Jeep"
+          },
+          {
+            "value": "Karma",
+            "display-value": "Karma"
+          },
+          {
+            "value": "Kia",
+            "display-value": "Kia"
+          },
+          {
+            "value": "Lamborghini",
+            "display-value": "Lamborghini"
+          },
+          {
+            "value": "Land Rover",
+            "display-value": "Land Rover"
+          },
+          {
+            "value": "Lexus",
+            "display-value": "Lexus"
+          },
+          {
+            "value": "Lincoln",
+            "display-value": "Lincoln"
+          },
+          {
+            "value": "Lotus",
+            "display-value": "Lotus"
+          },
+          {
+            "value": "Maserati",
+            "display-value": "Maserati"
+          },
+          {
+            "value": "Mazda",
+            "display-value": "Mazda"
+          },
+          {
+            "value": "McLaren",
+            "display-value": "McLaren"
+          },
+          {
+            "value": "Mercedes-Benz",
+            "display-value": "Mercedes-Benz"
+          },
+          {
+            "value": "MINI",
+            "display-value": "MINI"
+          },
+          {
+            "value": "Mitsubishi",
+            "display-value": "Mitsubishi"
+          },
+          {
+            "value": "Nissan",
+            "display-value": "Nissan"
+          },
+          {
+            "value": "Porsche",
+            "display-value": "Porsche"
+          },
+          {
+            "value": "Ram",
+            "display-value": "Ram"
+          },
+          {
+            "value": "Rolls-Royce",
+            "display-value": "Rolls-Royce"
+          },
+          {
+            "value": "Scion",
+            "display-value": "Scion"
+          },
+          {
+            "value": "smart",
+            "display-value": "smart"
+          },
+          {
+            "value": "Subaru",
+            "display-value": "Subaru"
+          },
+          {
+            "value": "Tesla",
+            "display-value": "Tesla"
+          },
+          {
+            "value": "Toyota",
+            "display-value": "Toyota"
+          },
+          {
+            "value": "Volkswagen",
+            "display-value": "Volkswagen"
+          },
+          {
+            "value": "Volvo",
+            "display-value": "Volvo"
+          },
+          {
+            "value": "XC90",
+            "display-value": "XC90"
+          }
+        ],
+        "criterion": "make",
+        "display-title": "Make",
+        "selected-values": ["All"],
+        "enabled": true,
+        "selection-style": "single"
+      }
+    },
+    {
+      "widget-type": "list",
+      "widget-data": {
+        "values": [
+          {
+            "value": "All",
+            "display-value": "All"
+          }
+        ],
+        "criterion": "model",
+        "display-title": "Model",
+        "selected-values": ["All"],
+        "enabled": false,
+        "selection-style": "single"
+      }
+    },
+    {
+      "widget-type": "list",
+      "widget-data": {
+        "values": [
+          {
+            "value": "All",
+            "display-value": "All"
+          }
+        ],
+        "criterion": "trim",
+        "display-title": "Trim",
+        "selected-values": ["All"],
+        "enabled": false,
+        "selection-style": "single"
+      }
+    },
+    {
+      "widget-type": "list",
+      "widget-data": {
+        "values": [
+          {
+            "value": "All",
+            "display-value": "All"
+          },
+          {
+            "value": "10 Cylinder Engine",
+            "display-value": "10 Cylinder Engine"
+          },
+          {
+            "value": "12 Cylinder Engine",
+            "display-value": "12 Cylinder Engine"
+          },
+          {
+            "value": "3 Cylinder Engine",
+            "display-value": "3 Cylinder Engine"
+          },
+          {
+            "value": "4 Cylinder Engine",
+            "display-value": "4 Cylinder Engine"
+          },
+          {
+            "value": "5 Cylinder Engine",
+            "display-value": "5 Cylinder Engine"
+          },
+          {
+            "value": "8 Cylinder Engine",
+            "display-value": "8 Cylinder Engine"
+          },
+          {
+            "value": "Electric Motor",
+            "display-value": "Electric Motor"
+          },
+          {
+            "value": "Straight 6 Cylinder Engine",
+            "display-value": "Straight 6 Cylinder Engine"
+          },
+          {
+            "value": "V6 Cylinder Engine",
+            "display-value": "V6 Cylinder Engine"
+          }
+        ],
+        "criterion": "engine",
+        "display-title": "Engine",
+        "selected-values": ["All"],
+        "enabled": true,
+        "selection-style": "single"
+      }
+    },
+    {
+      "widget-type": "list",
+      "widget-data": {
+        "values": [
+          {
+            "value": "All",
+            "display-value": "All"
+          },
+          {
+            "value": "A/T",
+            "display-value": "A/T"
+          }
+        ],
+        "criterion": "transmission",
+        "display-title": "Transmission",
+        "selected-values": ["All"],
+        "enabled": true,
+        "selection-style": "single"
+      }
+    },
+    {
+      "widget-type": "list",
+      "widget-data": {
+        "values": [
+          {
+            "value": "All",
+            "display-value": "All"
+          },
+          {
+            "value": "4-Speed A/T",
+            "display-value": "4-Speed A/T"
+          },
+          {
+            "value": "5-Speed A/T",
+            "display-value": "5-Speed A/T"
+          },
+          {
+            "value": "5-Speed M/T",
+            "display-value": "5-Speed M/T"
+          },
+          {
+            "value": "6-Speed A/T",
+            "display-value": "6-Speed A/T"
+          },
+          {
+            "value": "6-Speed M/T",
+            "display-value": "6-Speed M/T"
+          },
+          {
+            "value": "7-Speed M/T",
+            "display-value": "7-Speed M/T"
+          }
+        ],
+        "criterion": "advanced-transmission",
+        "display-title": "Adv. Transmission",
+        "selected-values": ["All"],
+        "enabled": true,
+        "selection-style": "single"
+      }
+    },
+    {
+      "widget-type": "list",
+      "widget-data": {
+        "values": [
+          {
+            "value": "All",
+            "display-value": "All"
+          },
+          {
+            "value": "All Wheel Drive",
+            "display-value": "All Wheel Drive"
+          },
+          {
+            "value": "Four Wheel Drive",
+            "display-value": "Four Wheel Drive"
+          },
+          {
+            "value": "Front Wheel Drive",
+            "display-value": "Front Wheel Drive"
+          },
+          {
+            "value": "Rear Wheel Drive",
+            "display-value": "Rear Wheel Drive"
+          }
+        ],
+        "criterion": "drivetrain",
+        "display-title": "Drivetrain",
+        "selected-values": ["All"],
+        "enabled": true,
+        "selection-style": "single"
+      }
+    },
+    {
+      "widget-type": "list",
+      "widget-data": {
+        "values": [
+          {
+            "value": "All",
+            "display-value": "All"
+          },
+          {
+            "value": "Diesel Fuel",
+            "display-value": "Diesel Fuel"
+          },
+          {
+            "value": "Electric Fuel System",
+            "display-value": "Electric Fuel System"
+          },
+          {
+            "value": "Flex Fuel Capability",
+            "display-value": "Flex Fuel Capability"
+          },
+          {
+            "value": "Gas/Electric Hybrid",
+            "display-value": "Gas/Electric Hybrid"
+          },
+          {
+            "value": "Gasoline Fuel",
+            "display-value": "Gasoline Fuel"
+          },
+          {
+            "value": "Plug-In Electric Fast Charge",
+            "display-value": "Plug-In Electric Fast Charge"
+          }
+        ],
+        "criterion": "fuel-type",
+        "display-title": "Fuel Type",
+        "selected-values": ["All"],
+        "enabled": true,
+        "selection-style": "single"
+      }
+    },
+    {
+      "widget-type": "list",
+      "widget-data": {
+        "values": [
+          {
+            "value": "No Preference",
+            "display-value": "No Preference"
+          },
+          {
+            "value": "3rd Row Seat",
+            "display-value": "3rd Row Seat"
+          },
+          {
+            "value": "4-Wheel Disc Brakes",
+            "display-value": "4-Wheel Disc Brakes"
+          },
+          {
+            "value": "A/C",
+            "display-value": "A/C"
+          },
+          {
+            "value": "ABS",
+            "display-value": "ABS"
+          },
+          {
+            "value": "Active Suspension",
+            "display-value": "Active Suspension"
+          },
+          {
+            "value": "Adaptive Cruise Control",
+            "display-value": "Adaptive Cruise Control"
+          },
+          {
+            "value": "Adjustable Pedals",
+            "display-value": "Adjustable Pedals"
+          },
+          {
+            "value": "Adjustable Steering Wheel",
+            "display-value": "Adjustable Steering Wheel"
+          },
+          {
+            "value": "Air Suspension",
+            "display-value": "Air Suspension"
+          },
+          {
+            "value": "All Wheel Steering",
+            "display-value": "All Wheel Steering"
+          },
+          {
+            "value": "Aluminum Wheels",
+            "display-value": "Aluminum Wheels"
+          },
+          {
+            "value": "AM/FM Stereo",
+            "display-value": "AM/FM Stereo"
+          },
+          {
+            "value": "Auto-Dimming Rearview Mirror",
+            "display-value": "Auto-Dimming Rearview Mirror"
+          },
+          {
+            "value": "Automatic Headlights",
+            "display-value": "Automatic Headlights"
+          },
+          {
+            "value": "Automatic Parking",
+            "display-value": "Automatic Parking"
+          },
+          {
+            "value": "Auxiliary Audio Input",
+            "display-value": "Auxiliary Audio Input"
+          },
+          {
+            "value": "Back-Up Camera",
+            "display-value": "Back-Up Camera"
+          },
+          {
+            "value": "Bed Liner",
+            "display-value": "Bed Liner"
+          },
+          {
+            "value": "Blind Spot Monitor",
+            "display-value": "Blind Spot Monitor"
+          },
+          {
+            "value": "Bluetooth Connection",
+            "display-value": "Bluetooth Connection"
+          },
+          {
+            "value": "Brake Actuated Limited Slip Differential",
+            "display-value": "Brake Actuated Limited Slip Differential"
+          },
+          {
+            "value": "Brake Assist",
+            "display-value": "Brake Assist"
+          },
+          {
+            "value": "Bucket Seats",
+            "display-value": "Bucket Seats"
+          },
+          {
+            "value": "Cargo Shade",
+            "display-value": "Cargo Shade"
+          },
+          {
+            "value": "CD Changer",
+            "display-value": "CD Changer"
+          },
+          {
+            "value": "CD Player",
+            "display-value": "CD Player"
+          },
+          {
+            "value": "Child Safety Locks",
+            "display-value": "Child Safety Locks"
+          },
+          {
+            "value": "Chrome Wheels",
+            "display-value": "Chrome Wheels"
+          },
+          {
+            "value": "Climate Control",
+            "display-value": "Climate Control"
+          },
+          {
+            "value": "Cloth Seats",
+            "display-value": "Cloth Seats"
+          },
+          {
+            "value": "Conventional Spare Tire",
+            "display-value": "Conventional Spare Tire"
+          },
+          {
+            "value": "Convertible Hardtop",
+            "display-value": "Convertible Hardtop"
+          },
+          {
+            "value": "Convertible Soft Top",
+            "display-value": "Convertible Soft Top"
+          },
+          {
+            "value": "Cross-Traffic Alert",
+            "display-value": "Cross-Traffic Alert"
+          },
+          {
+            "value": "Cruise Control",
+            "display-value": "Cruise Control"
+          },
+          {
+            "value": "Daytime Running Lights",
+            "display-value": "Daytime Running Lights"
+          },
+          {
+            "value": "Driver Adjustable Lumbar",
+            "display-value": "Driver Adjustable Lumbar"
+          },
+          {
+            "value": "Driver Air Bag",
+            "display-value": "Driver Air Bag"
+          },
+          {
+            "value": "Driver Vanity Mirror",
+            "display-value": "Driver Vanity Mirror"
+          },
+          {
+            "value": "Dual Rear Wheels",
+            "display-value": "Dual Rear Wheels"
+          },
+          {
+            "value": "Emergency Trunk Release",
+            "display-value": "Emergency Trunk Release"
+          },
+          {
+            "value": "Engine Immobilizer",
+            "display-value": "Engine Immobilizer"
+          },
+          {
+            "value": "Entertainment System",
+            "display-value": "Entertainment System"
+          },
+          {
+            "value": "Floor Mats",
+            "display-value": "Floor Mats"
+          },
+          {
+            "value": "Fog Lamps",
+            "display-value": "Fog Lamps"
+          },
+          {
+            "value": "Fourth Passenger Door",
+            "display-value": "Fourth Passenger Door"
+          },
+          {
+            "value": "Front Disc/Rear Drum Brakes",
+            "display-value": "Front Disc/Rear Drum Brakes"
+          },
+          {
+            "value": "Front Head Air Bag",
+            "display-value": "Front Head Air Bag"
+          },
+          {
+            "value": "Front Reading Lamps",
+            "display-value": "Front Reading Lamps"
+          },
+          {
+            "value": "Front Side Air Bag",
+            "display-value": "Front Side Air Bag"
+          },
+          {
+            "value": "Generic Sun/Moonroof",
+            "display-value": "Generic Sun/Moonroof"
+          },
+          {
+            "value": "Hands-Free Liftgate",
+            "display-value": "Hands-Free Liftgate"
+          },
+          {
+            "value": "HD Radio",
+            "display-value": "HD Radio"
+          },
+          {
+            "value": "Headlights-Auto-Leveling",
+            "display-value": "Headlights-Auto-Leveling"
+          },
+          {
+            "value": "Heads-Up Display",
+            "display-value": "Heads-Up Display"
+          },
+          {
+            "value": "Heated Front Seat(s)",
+            "display-value": "Heated Front Seat(s)"
+          },
+          {
+            "value": "Heated Mirrors",
+            "display-value": "Heated Mirrors"
+          },
+          {
+            "value": "Heated Rear Seat(s)",
+            "display-value": "Heated Rear Seat(s)"
+          },
+          {
+            "value": "Heated Steering Wheel",
+            "display-value": "Heated Steering Wheel"
+          },
+          {
+            "value": "HID headlights",
+            "display-value": "HID headlights"
+          },
+          {
+            "value": "Integrated Turn Signal Mirrors",
+            "display-value": "Integrated Turn Signal Mirrors"
+          },
+          {
+            "value": "Intermittent Wipers",
+            "display-value": "Intermittent Wipers"
+          },
+          {
+            "value": "Keyless Entry",
+            "display-value": "Keyless Entry"
+          },
+          {
+            "value": "Keyless Start",
+            "display-value": "Keyless Start"
+          },
+          {
+            "value": "Knee Air Bag",
+            "display-value": "Knee Air Bag"
+          },
+          {
+            "value": "Lane Departure Warning",
+            "display-value": "Lane Departure Warning"
+          },
+          {
+            "value": "Leather Seats",
+            "display-value": "Leather Seats"
+          },
+          {
+            "value": "Leather Steering Wheel",
+            "display-value": "Leather Steering Wheel"
+          },
+          {
+            "value": "Locking/Limited Slip Differential",
+            "display-value": "Locking/Limited Slip Differential"
+          },
+          {
+            "value": "Luggage Rack",
+            "display-value": "Luggage Rack"
+          },
+          {
+            "value": "Mirror Memory",
+            "display-value": "Mirror Memory"
+          },
+          {
+            "value": "MP3 Player",
+            "display-value": "MP3 Player"
+          },
+          {
+            "value": "Multi-Zone A/C",
+            "display-value": "Multi-Zone A/C"
+          },
+          {
+            "value": "Navigation System",
+            "display-value": "Navigation System"
+          },
+          {
+            "value": "Night Vision",
+            "display-value": "Night Vision"
+          },
+          {
+            "value": "Pass-Through Rear Seat",
+            "display-value": "Pass-Through Rear Seat"
+          },
+          {
+            "value": "Passenger Adjustable Lumbar",
+            "display-value": "Passenger Adjustable Lumbar"
+          },
+          {
+            "value": "Passenger Air Bag",
+            "display-value": "Passenger Air Bag"
+          },
+          {
+            "value": "Passenger Air Bag On/Off Switch",
+            "display-value": "Passenger Air Bag On/Off Switch"
+          },
+          {
+            "value": "Passenger Air Bag Sensor",
+            "display-value": "Passenger Air Bag Sensor"
+          },
+          {
+            "value": "Passenger Vanity Mirror",
+            "display-value": "Passenger Vanity Mirror"
+          },
+          {
+            "value": "Pickup Bed Tonneau Cover",
+            "display-value": "Pickup Bed Tonneau Cover"
+          },
+          {
+            "value": "Power Door Locks",
+            "display-value": "Power Door Locks"
+          },
+          {
+            "value": "Power Driver Seat",
+            "display-value": "Power Driver Seat"
+          },
+          {
+            "value": "Power Folding Mirrors",
+            "display-value": "Power Folding Mirrors"
+          },
+          {
+            "value": "Power Mirror(s)",
+            "display-value": "Power Mirror(s)"
+          },
+          {
+            "value": "Power Outlet",
+            "display-value": "Power Outlet"
+          },
+          {
+            "value": "Power Passenger Seat",
+            "display-value": "Power Passenger Seat"
+          },
+          {
+            "value": "Power Steering",
+            "display-value": "Power Steering"
+          },
+          {
+            "value": "Power Windows",
+            "display-value": "Power Windows"
+          },
+          {
+            "value": "Premium Sound System",
+            "display-value": "Premium Sound System"
+          },
+          {
+            "value": "Premium Synthetic Seats",
+            "display-value": "Premium Synthetic Seats"
+          },
+          {
+            "value": "Privacy Glass",
+            "display-value": "Privacy Glass"
+          },
+          {
+            "value": "Rear Bench Seat",
+            "display-value": "Rear Bench Seat"
+          },
+          {
+            "value": "Rear Defrost",
+            "display-value": "Rear Defrost"
+          },
+          {
+            "value": "Rear Parking Aid",
+            "display-value": "Rear Parking Aid"
+          },
+          {
+            "value": "Rear Reading Lamps",
+            "display-value": "Rear Reading Lamps"
+          },
+          {
+            "value": "Rear Seat Audio Controls",
+            "display-value": "Rear Seat Audio Controls"
+          },
+          {
+            "value": "Rear Spoiler",
+            "display-value": "Rear Spoiler"
+          },
+          {
+            "value": "Remote Engine Start",
+            "display-value": "Remote Engine Start"
+          },
+          {
+            "value": "Remote Trunk Release",
+            "display-value": "Remote Trunk Release"
+          },
+          {
+            "value": "Rollover Protection Bars",
+            "display-value": "Rollover Protection Bars"
+          },
+          {
+            "value": "Running Boards/Side Steps",
+            "display-value": "Running Boards/Side Steps"
+          },
+          {
+            "value": "Satellite Radio",
+            "display-value": "Satellite Radio"
+          },
+          {
+            "value": "Seat Memory",
+            "display-value": "Seat Memory"
+          },
+          {
+            "value": "Seat-Massage",
+            "display-value": "Seat-Massage"
+          },
+          {
+            "value": "Seatbelt Air Bag",
+            "display-value": "Seatbelt Air Bag"
+          },
+          {
+            "value": "Security System",
+            "display-value": "Security System"
+          },
+          {
+            "value": "Sliding Rear Window",
+            "display-value": "Sliding Rear Window"
+          },
+          {
+            "value": "Smart Device Integration",
+            "display-value": "Smart Device Integration"
+          },
+          {
+            "value": "Split Bench Seat",
+            "display-value": "Split Bench Seat"
+          },
+          {
+            "value": "Steel Wheels",
+            "display-value": "Steel Wheels"
+          },
+          {
+            "value": "Steering Wheel Audio Controls",
+            "display-value": "Steering Wheel Audio Controls"
+          },
+          {
+            "value": "Sun/Moonroof",
+            "display-value": "Sun/Moonroof"
+          },
+          {
+            "value": "T-Top",
+            "display-value": "T-Top"
+          },
+          {
+            "value": "Targa Roof",
+            "display-value": "Targa Roof"
+          },
+          {
+            "value": "Telematics",
+            "display-value": "Telematics"
+          },
+          {
+            "value": "Temporary Spare Tire",
+            "display-value": "Temporary Spare Tire"
+          },
+          {
+            "value": "Third Passenger Door",
+            "display-value": "Third Passenger Door"
+          },
+          {
+            "value": "Tire Pressure Monitor",
+            "display-value": "Tire Pressure Monitor"
+          },
+          {
+            "value": "Tires - Front All-Season",
+            "display-value": "Tires - Front All-Season"
+          },
+          {
+            "value": "Tires - Front All-Terrain",
+            "display-value": "Tires - Front All-Terrain"
+          },
+          {
+            "value": "Tires - Front On/Off Road",
+            "display-value": "Tires - Front On/Off Road"
+          },
+          {
+            "value": "Tires - Front Performance",
+            "display-value": "Tires - Front Performance"
+          },
+          {
+            "value": "Tires - Rear All-Season",
+            "display-value": "Tires - Rear All-Season"
+          },
+          {
+            "value": "Tow Hitch",
+            "display-value": "Tow Hitch"
+          },
+          {
+            "value": "Tow Hooks",
+            "display-value": "Tow Hooks"
+          },
+          {
+            "value": "Traction Control",
+            "display-value": "Traction Control"
+          },
+          {
+            "value": "Transmission Overdrive Switch",
+            "display-value": "Transmission Overdrive Switch"
+          },
+          {
+            "value": "Transmission w/Dual Shift Mode",
+            "display-value": "Transmission w/Dual Shift Mode"
+          },
+          {
+            "value": "Trip Computer",
+            "display-value": "Trip Computer"
+          },
+          {
+            "value": "Turbocharged",
+            "display-value": "Turbocharged"
+          },
+          {
+            "value": "Universal Garage Door Opener",
+            "display-value": "Universal Garage Door Opener"
+          },
+          {
+            "value": "Vinyl Seats",
+            "display-value": "Vinyl Seats"
+          },
+          {
+            "value": "Wheel Covers",
+            "display-value": "Wheel Covers"
+          },
+          {
+            "value": "Wheel Locks",
+            "display-value": "Wheel Locks"
+          },
+          {
+            "value": "WiFi Hotspot",
+            "display-value": "WiFi Hotspot"
+          },
+          {
+            "value": "Woodgrain Interior Trim",
+            "display-value": "Woodgrain Interior Trim"
+          }
+        ],
+        "criterion": "features",
+        "display-title": "Features",
+        "selected-values": ["No Preference"],
+        "enabled": true,
+        "selection-style": "multiple"
+      }
+    }
+  ]
+}
