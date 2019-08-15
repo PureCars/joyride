@@ -1,8 +1,7 @@
 import React from 'react'
-import Card from '@material-ui/core/Card'
 import Typography from '../Typography'
 import IdealImage from 'react-ideal-image'
-import { ImageWrapper, VehicleInfo, PriceLine } from './styles'
+import { Card, Title, ImageWrapper, VehicleInfo, PriceLine } from './styles'
 
 const VehicleCard = ({
   className,
@@ -24,7 +23,7 @@ const VehicleCard = ({
         />
       </ImageWrapper>
       <VehicleInfo>
-        <Typography variant="h7">{title}</Typography>
+        <Title variant="h7">{title}</Title>
         <Typography variant="body3">{details.join(' | ')}</Typography>
         <PriceLine>
           <Typography variant="h6">{price}</Typography>

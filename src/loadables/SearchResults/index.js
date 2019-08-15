@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { TextField } from '@material-ui/core'
 import VehicleList from '../../components/VehicleList'
 import { ListToolbar } from '../../components/ListToolbar'
 import omit from 'lodash/omit'
 import formatString from '../../utils/getStringFormatter'
 const queryString = require('query-string')
-
-function SearchForm() {
-  return (
-    <form>
-      <TextField />
-    </form>
-  )
-}
 
 function getApiQuery(queryParams) {
   const queryFilters = Object.keys(queryParams).map(key => ({
@@ -73,7 +64,6 @@ export default function SearchResultsLoadable(props) {
 
   function handleChipDelete(key) {
     const queryParamString = queryString.stringify(omit(queryParams, key))
-    console.log(queryParamString)
     history.push(`/search?${queryParamString}`)
     setQueryParams(omit(queryParams, key))
   }
@@ -83,26 +73,21 @@ export default function SearchResultsLoadable(props) {
     setQueryParams({})
   }
 
-  return (
-    <div>
-      <SearchForm />
-      {vehicles ? (
-        <div>
-          <ListToolbar
-            itemCount={vehicles.length}
-            chips={Object.keys(queryParams).map(key => ({
-              key: key,
-              value: queryParams[key]
-            }))}
-            onResetFilters={handleResetFilters}
-            onDeleteChip={key => handleChipDelete(key)}
-            onChangeSort={() => console.log('sort changed')}
-          />
-          <VehicleList vehicles={vehicles} />
-        </div>
-      ) : (
-        'loading...'
-      )}
-    </div>
+  return vehicles ? (
+    <>
+      <ListToolbar
+        itemCount={vehicles.length}
+        chips={Object.keys(queryParams).map(key => ({
+          key: key,
+          value: queryParams[key]
+        }))}
+        onResetFilters={handleResetFilters}
+        onDeleteChip={key => handleChipDelete(key)}
+        onChangeSort={() => console.log('sort changed')}
+      />
+      <VehicleList vehicles={vehicles} />
+    </>
+  ) : (
+    'loading...'
   )
 }
