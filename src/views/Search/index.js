@@ -13,7 +13,7 @@ export default function SearchView(props) {
         variant="lite"
         onSubmit={search => history.push(`/search?${search}`)}
       />
-      <SearchResultsLoadable queryParams={search} />
+      <SearchResultsLoadable queryParams={search} history={history} />
     </>
   )
 }

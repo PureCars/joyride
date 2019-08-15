@@ -18,7 +18,9 @@ function getApiQuery(queryParams) {
   const queryFilters = Object.keys(queryParams).map(key => ({
     'widget-data': {
       criterion: key,
-      'selected-values': [queryParams[key]]
+      'selected-values': [
+        queryParams[key].charAt(0).toUpperCase() + queryParams[key].slice(1)
+      ]
     }
   }))
 
@@ -56,6 +58,7 @@ async function getVehicleResults(queryParams) {
 }
 
 export default function SearchResultsLoadable(props) {
+  const history = props.history
   const [queryParams, setQueryParams] = useState(
     queryString.parse(props.queryParams)
   )
@@ -69,10 +72,14 @@ export default function SearchResultsLoadable(props) {
   }, [queryParams])
 
   function handleChipDelete(key) {
+    const queryParamString = queryString.stringify(omit(queryParams, key))
+    console.log(queryParamString)
+    history.push(`/search?${queryParamString}`)
     setQueryParams(omit(queryParams, key))
   }
 
   function handleResetFilters() {
+    history.push(`/search`)
     setQueryParams({})
   }
 
