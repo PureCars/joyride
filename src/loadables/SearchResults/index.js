@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import VehicleList from '../../components/VehicleList'
+import VehicleListSkeleton from '../../components/VehicleList/Skeleton'
 import { ListToolbar } from '../../components/ListToolbar'
 import omit from 'lodash/omit'
 import formatString from '../../utils/getStringFormatter'
@@ -62,7 +63,6 @@ export default function SearchResultsLoadable(props) {
 
   function handleChipDelete(key) {
     const queryParamString = queryString.stringify(omit(queryParams, key))
-    console.log(queryParamString)
     history.push(`/search?${queryParamString}`)
   }
 
@@ -70,25 +70,21 @@ export default function SearchResultsLoadable(props) {
     history.push(`/search`)
   }
 
-  return (
-    <div>
-      {vehicles ? (
-        <div>
-          <ListToolbar
-            itemCount={vehicles.length}
-            chips={Object.keys(queryParams).map(key => ({
-              key: key,
-              value: queryParams[key]
-            }))}
-            onResetFilters={handleResetFilters}
-            onDeleteChip={key => handleChipDelete(key)}
-            onChangeSort={() => console.log('sort changed')}
-          />
-          <VehicleList vehicles={vehicles} />
-        </div>
-      ) : (
-        'loading...'
-      )}
-    </div>
+  return vehicles ? (
+    <>
+      <ListToolbar
+        itemCount={vehicles.length}
+        chips={Object.keys(queryParams).map(key => ({
+          key: key,
+          value: queryParams[key]
+        }))}
+        onResetFilters={handleResetFilters}
+        onDeleteChip={key => handleChipDelete(key)}
+        onChangeSort={() => console.log('sort changed')}
+      />
+      <VehicleList vehicles={vehicles} />
+    </>
+  ) : (
+    <VehicleListSkeleton />
   )
 }
