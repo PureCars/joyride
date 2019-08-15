@@ -12,7 +12,6 @@ const VehicleCard = ({
   price,
   payment
 }) => {
-  console.log(imageUrl)
   return (
     <Card className={className}>
       <ImageWrapper>

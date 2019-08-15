@@ -3,6 +3,7 @@ import { TextField } from '@material-ui/core'
 import VehicleList from '../../components/VehicleList'
 import { ListToolbar } from '../../components/ListToolbar'
 import omit from 'lodash/omit'
+import formatString from '../../utils/getStringFormatter'
 const queryString = require('query-string')
 
 function SearchForm() {
@@ -45,11 +46,12 @@ async function getVehicleResults(queryParams) {
   const responseJson = await response.json()
 
   return responseJson.map(result => ({
+    id: result.id,
     imageUrl: result.photo.url.thumb,
     title: result.title,
     details: [result.subtitle],
-    price: result.price.cash,
-    payment: result.price.monthly
+    price: formatString('Currency')(result.price.cash),
+    payment: `${formatString('Currency')(result.price.monthly)}/month`
   }))
 }
 
