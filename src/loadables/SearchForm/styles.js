@@ -2,7 +2,7 @@ import InputBase from '@material-ui/core/InputBase'
 import Icon from '@material-ui/icons/Search'
 import styled from 'styled-components'
 
-export const Form = styled.form`
+export const FormBase = styled.form`
   width: 100%;
   display: flex;
   align-items: center;
@@ -44,5 +44,27 @@ export const SearchButton = styled.button`
     color: #8c8c8c;
     cursor: default;
     transition: background-color 0.1s linear;
+  }
+`
+
+export const FormLite = styled.form`
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  ${SearchIcon} {
+    font-size: 32px;
+    color: #9e9e9e;
+    margin-right: 8px;
+  }
+
+  ${SearchField} {
+    border-bottom: none;
+    font-size: 16px;
+    input {
+      color: #212121;
+      font-size: 16px;
+      padding: 0;
+    }
   }
 `

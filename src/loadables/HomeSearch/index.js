@@ -1,37 +1,7 @@
 import React, { useState } from 'react'
 import queryString from 'query-string'
 import LandingBanner from '../../components/LandingBanner'
-import { Form, SearchField, SearchIcon, SearchButton } from './styles'
-
-function parseQuery(query) {
-  const [year, make, model] = query.split(' ')
-  return queryString.stringify({ year, make, model })
-}
-
-function SearchForm({ onSubmit }) {
-  const [query, setQuery] = useState()
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    onSubmit(parseQuery(query))
-  }
-
-  return (
-    <Form onSubmit={handleSubmit}>
-      <SearchIcon />
-      <SearchField
-        autoFocus
-        placeholder="Year Make Model"
-        variant="outlined"
-        value={query}
-        onChange={e => setQuery(e.target.value)}
-      />
-      <SearchButton type="submit" disabled={!query}>
-        Search
-      </SearchButton>
-    </Form>
-  )
-}
+import SearchForm from '../SearchForm'
 
 export default function HomeSearchLoadable({ history }) {
   return (
