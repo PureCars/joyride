@@ -215,7 +215,7 @@ export class Typography extends React.PureComponent {
       headlineMapping,
       ...rest
     } = this.props
-    console.log(this.props)
+
     const className = classnames(
       classes[variant],
       {
@@ -224,7 +224,7 @@ export class Typography extends React.PureComponent {
       classNameProp
     )
     const component = componentProp || headlineMapping[variant]
-    console.log(className)
+
     return (
       <TypographyBase
         component={component}
