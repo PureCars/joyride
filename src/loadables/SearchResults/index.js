@@ -82,7 +82,7 @@ export default function SearchResultsLoadable(props) {
         onDeleteChip={key => handleChipDelete(key)}
         onChangeSort={() => console.log('sort changed')}
       />
-      <VehicleList vehicles={vehicles} />
+      <VehicleList vehicles={vehicles} flipkey={props.queryParams} />
     </>
   ) : (
     <VehicleListSkeleton />

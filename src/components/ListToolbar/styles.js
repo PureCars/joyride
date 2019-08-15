@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 8px;
+  margin-bottom: 8px;
 `
 
 export const Chips = styled.div`

@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     variant === 'filled'
       ? `
     background-color: white;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid #e1e1e1;
   `
       : ''}
 `

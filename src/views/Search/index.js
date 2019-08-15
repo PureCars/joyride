@@ -5,7 +5,18 @@ import SearchForm from '../../loadables/SearchForm'
 import NavBar from '../../loadables/NavBar'
 
 const PageWrapper = styled.div`
-  padding: 50px 16px 16px 16px;
+  padding: 75px 16px 16px 300px;
+  background: #fafafa;
+`
+
+const Sidenav = styled.aside`
+  background: white;
+  position: fixed;
+  left: 0;
+  top: 50px;
+  height: calc(100vh - 50px);
+  width: 270px;
+  border-right: 1px solid #e1e1e1;
 `
 
 export default function SearchView(props) {
@@ -21,6 +32,7 @@ export default function SearchView(props) {
           onSubmit={search => history.push(`/search?${search}`)}
         />
       </NavBar>
+      <Sidenav>test</Sidenav>
       <PageWrapper>
         <SearchResultsLoadable queryParams={search} history={history} />
       </PageWrapper>
