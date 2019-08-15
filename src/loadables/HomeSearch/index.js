@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import queryString from 'query-string'
+import React from 'react'
 import LandingBanner from '../../components/LandingBanner'
 import SearchForm from '../SearchForm'
 

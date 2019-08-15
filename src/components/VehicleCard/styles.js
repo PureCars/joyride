@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import Typography from '../Typography'
 
-export const VehicleImage = styled.img`
+export const ImageWrapper = styled.div`
   overflow: hidden;
-  width: 100%;
+  height: 174px;
+  width: 260px;
 `
 
 export const VehicleInfo = styled.div`
