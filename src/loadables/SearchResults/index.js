@@ -50,9 +50,7 @@ async function getVehicleResults(queryParams) {
 
 export default function SearchResultsLoadable(props) {
   const history = props.history
-  const [queryParams, setQueryParams] = useState(
-    queryString.parse(props.queryParams)
-  )
+  const queryParams = queryString.parse(props.queryParams)
   const [vehicles, setVehicles] = useState()
   useEffect(() => {
     async function fetchData() {
@@ -60,18 +58,16 @@ export default function SearchResultsLoadable(props) {
       setVehicles(results)
     }
     fetchData()
-  }, [queryParams])
+  }, [props.queryParams])
 
   function handleChipDelete(key) {
     const queryParamString = queryString.stringify(omit(queryParams, key))
     console.log(queryParamString)
     history.push(`/search?${queryParamString}`)
-    setQueryParams(omit(queryParams, key))
   }
 
   function handleResetFilters() {
     history.push(`/search`)
-    setQueryParams({})
   }
 
   return (
