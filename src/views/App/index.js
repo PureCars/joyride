@@ -10,8 +10,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
-import { ThemeProvider } from 'emotion-theming'
-import { light } from '../../themes'
+import { ThemeProvider } from 'styled-components'
 import { LoadableProvider } from '../../utils/loadable'
 import Page from '../../components/Page'
 import PricesView from '../Prices'
@@ -21,7 +20,7 @@ function App() {
   return (
     <StylesProvider injectFirst>
       <MuiThemeProvider theme={muiTheme}>
-        <ThemeProvider theme={light}>
+        <ThemeProvider theme={muiTheme}>
           <LoadableProvider>
             <Page>
               <Router>
