@@ -7,7 +7,7 @@ const VehicleList = ({ vehicles }) => {
   return (
     <ListWrapper>
       {vehicles.map(i => (
-        <CardLink>
+        <CardLink to={`/vehicle/${i.id}`}>
           <VehicleCard
             imageUrl={i.imageUrl}
             title={i.title}
