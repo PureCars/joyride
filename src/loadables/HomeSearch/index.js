@@ -1,11 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Redirect } from 'react-router'
+import queryString from 'query-string'
 import TextField from '@material-ui/core/TextField'
 import LandingBanner from '../../components/LandingBanner'
 
+function parseQuery(query) {
+  const [year, make, model] = query.split(' ')
+  return queryString.stringify({ year, make, model })
+}
+
 function SearchForm() {
-  return (
-    <form>
-      <TextField />
+  const [query, setQuery] = useState('')
+  const [search, setSearch] = useState(null)
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    setSearch(parseQuery(query))
+  }
+
+  return search ? (
+    <Redirect
+      to={{
+        pathname: '/search',
+        search: `?${search}`
+      }}
+    />
+  ) : (
+    <form onSubmit={handleSubmit}>
+      <TextField value={query} onChange={e => setQuery(e.target.value)} />
     </form>
   )
 }
