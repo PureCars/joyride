@@ -6,8 +6,8 @@ export const ListWrapper = styled.div`
   flex-wrap: wrap;
 `
 
-export const CardLink = styled.a`
+export const CardLink = styled(Link)`
   display: block;
   padding: ${({ theme }) => theme.mui.spacing(1)}px;
-  width: 260px;
+  text-decoration: none;
 `
