@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import VehicleList from '../../components/VehicleList'
+import VehicleListSkeleton from '../../components/VehicleList/Skeleton'
 import { ListToolbar } from '../../components/ListToolbar'
 import omit from 'lodash/omit'
 import formatString from '../../utils/getStringFormatter'
@@ -88,6 +89,6 @@ export default function SearchResultsLoadable(props) {
       <VehicleList vehicles={vehicles} />
     </>
   ) : (
-    'loading...'
+    <VehicleListSkeleton />
   )
 }

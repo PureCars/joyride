@@ -11,3 +11,7 @@ export const CardLink = styled(Link)`
   padding: ${({ theme }) => theme.mui.spacing(1)}px;
   text-decoration: none;
 `
+
+export const CardWrapper = styled.div`
+  padding: ${({ theme }) => theme.mui.spacing(1)}px;
+`
