@@ -1,6 +1,6 @@
 import React from 'react'
+import SearchResultsLoadable from '../../loadables/SearchResults'
 
 export default function SearchView(props) {
-  console.log(props.location.state)
-  return <span>Search View</span>
+  return <SearchResultsLoadable queryParams={props.location.search} />
 }
