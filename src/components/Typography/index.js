@@ -1,19 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import upperFirst from 'lodash/upperFirst'
-import reduce from 'lodash/reduce'
 import classnames from 'classnames'
 import { withStyles } from '@material-ui/styles'
 import { TypographyBase } from './styles'
 
-/**
- * Boosts the specificity of the CSS selectors used for variants and colors
- * so that they are higher than the MUI ones; that way our styles are always
- * prioritized by browsers.
- */
-const boostCssSpecificity = style => ({
-  '&&': style
-})
 /**
  * Defines typography colors and selectors to get their values from the theme.
  */

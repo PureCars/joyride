@@ -1,5 +1,5 @@
 import React from 'react'
-import Typography from '@material-ui/core/Typography'
+import Typography from '../Typography'
 import {
   Wrapper,
   Information,
@@ -8,11 +8,11 @@ import {
   ImageWrapper
 } from './styles'
 
-export function LandingBanner({ title, form: Form, image }) {
+export default function LandingBanner({ title, form: Form, image }) {
   return (
     <Wrapper>
       <Information>
-        <Typography variant="h3">{title}</Typography>
+        <Typography variant="h1">{title}</Typography>
         <FormWrapper>
           <Form />
         </FormWrapper>

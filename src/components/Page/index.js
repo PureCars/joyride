@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from '@emotion/styled/macro'
+import styled from 'styled-components'
 
 const PageRoot = styled.div`
-  background: ${props => props.theme.palette.background.default};
   min-height: 100vh;
 `
 
 const PageContent = styled.div`
   margin: 0 auto;
+  ${props => console.log(props)}
   max-width: ${props => (props.size === 'full' ? '100%' : '1280px')};
-  padding: ${props => props.theme.spacing(4)}px;
+  padding: ${props => props.theme.mui.spacing(4)}px;
 `
 
 export const Page = React.forwardRef(function Page(props, ref) {

@@ -1,35 +1,27 @@
 import React from 'react'
 import {
-  createMuiTheme,
   ThemeProvider as MuiThemeProvider,
   StylesProvider
 } from '@material-ui/styles'
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
+import { mui } from '../../themes'
 import { LoadableProvider } from '../../utils/loadable'
-import Page from '../../components/Page'
-import PricesView from '../Prices'
+import HomeView from '../Home'
+import SearchView from '../Search'
 
-const muiTheme = createMuiTheme()
 function App() {
   return (
     <StylesProvider injectFirst>
-      <MuiThemeProvider theme={muiTheme}>
-        <ThemeProvider theme={muiTheme}>
+      <MuiThemeProvider theme={mui}>
+        <ThemeProvider theme={{ mui }}>
           <LoadableProvider>
-            <Page>
-              <Router>
-                <Switch>
-                  <Route path="/prices" component={PricesView} />
-                  <Redirect exact from="/" to="/prices" />
-                </Switch>
-              </Router>
-            </Page>
+            <Router>
+              <Switch>
+                <Route exact path="/" component={HomeView} />
+                <Route exact path="/search" component={SearchView} />
+              </Switch>
+            </Router>
           </LoadableProvider>
         </ThemeProvider>
       </MuiThemeProvider>
