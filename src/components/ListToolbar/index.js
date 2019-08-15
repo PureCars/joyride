@@ -49,6 +49,7 @@ export const ListToolbar = ({
         <Chips>
           {chips.map(chip => (
             <StyledChip
+              key={chip.key}
               label={chip.value}
               onDelete={createHandleChipDelete(chip.key)}
             />

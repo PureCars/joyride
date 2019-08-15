@@ -13,40 +13,32 @@ function SearchForm() {
   )
 }
 
-async function getVehicleResults({ year, make, model }) {
-  console.log(`YMM: ${year} ${make} ${model}`)
+function getApiQuery(queryParams) {
+  const queryFilters = Object.keys(queryParams).map(key => ({
+    'widget-data': {
+      criterion: key,
+      'selected-values': [queryParams[key]]
+    }
+  }))
+
+  queryFilters.push({
+    'widget-data': {
+      criterion: 'distance',
+      'selected-values': ['30316', '50 Miles']
+    }
+  })
+
+  return {
+    'criteria-gui': queryFilters
+  }
+}
+
+async function getVehicleResults(queryParams) {
   const response = await fetch(
     'https://apix.purecars.com/joyride/public/search/results',
     {
       method: 'POST',
-      body: JSON.stringify({
-        'criteria-gui': [
-          {
-            'widget-data': {
-              criterion: 'year',
-              'selected-values': [year]
-            }
-          },
-          {
-            'widget-data': {
-              criterion: 'make',
-              'selected-values': [make]
-            }
-          },
-          {
-            'widget-data': {
-              criterion: 'model',
-              'selected-values': [model]
-            }
-          },
-          {
-            'widget-data': {
-              criterion: 'distance',
-              'selected-values': ['30316', '50 Miles']
-            }
-          }
-        ]
-      })
+      body: JSON.stringify(getApiQuery(queryParams))
     }
   )
 
