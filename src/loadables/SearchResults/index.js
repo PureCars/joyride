@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { TextField } from '@material-ui/core'
 import VehicleList from '../../components/VehicleList'
 import { ListToolbar } from '../../components/ListToolbar'
 import omit from 'lodash/omit'
 import formatString from '../../utils/getStringFormatter'
 const queryString = require('query-string')
-
-function SearchForm() {
-  return (
-    <form>
-      <TextField />
-    </form>
-  )
-}
 
 function getApiQuery(queryParams) {
   const queryFilters = Object.keys(queryParams).map(key => ({
@@ -85,7 +76,6 @@ export default function SearchResultsLoadable(props) {
 
   return (
     <div>
-      <SearchForm />
       {vehicles ? (
         <div>
           <ListToolbar
