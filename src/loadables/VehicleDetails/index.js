@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import VehicleImagesBanner from '../../components/VehicleImagesBanner'
 import VehicleSummary from '../../components/VehicleSummary'
+import Page from '../../components/Page'
 import { ImageGrid } from '../../components/ImageGrid'
 
 async function getVehicleDetails(vehicleId) {
@@ -10,18 +11,7 @@ async function getVehicleDetails(vehicleId) {
 
   const responseJson = await response.json()
 
-  console.log(responseJson)
-
   return responseJson
-
-  // return responseJson.map(result => ({
-  //   id: result.id,
-  //   imageUrl: result.photo.url.thumb,
-  //   title: result.title,
-  //   details: [result.subtitle],
-  //   price: formatString('Currency')(result.price.cash),
-  //   payment: `${formatString('Currency')(result.price.monthly)}/month`
-  // }))
 }
 
 export default function VehicleDetailsLoadable({ id: vehicleId }) {
@@ -29,22 +19,22 @@ export default function VehicleDetailsLoadable({ id: vehicleId }) {
   useEffect(() => {
     async function fetchData() {
       const results = await getVehicleDetails(vehicleId)
-      console.log(results)
       setVehicleDetails(results)
     }
     fetchData()
   }, [vehicleId])
 
-  getVehicleDetails(vehicleId)
   return vehicleDetails ? (
     <>
       <VehicleImagesBanner vehicle={vehicleDetails}></VehicleImagesBanner>
-      <VehicleSummary vehicle={vehicleDetails}></VehicleSummary>
-      <ImageGrid
-        imageUrls={vehicleDetails.features
-          .filter(feature => feature.imageUrl)
-          .map(feature => feature.imageUrl)}
-      ></ImageGrid>
+      <Page>
+        <VehicleSummary vehicle={vehicleDetails}></VehicleSummary>
+        <ImageGrid
+          imageUrls={vehicleDetails.features
+            .filter(feature => feature.imageUrl)
+            .map(feature => feature.imageUrl)}
+        ></ImageGrid>
+      </Page>
     </>
   ) : (
     'loading...'
