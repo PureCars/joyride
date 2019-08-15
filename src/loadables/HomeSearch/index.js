@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { Redirect } from 'react-router'
 import queryString from 'query-string'
-import TextField from '@material-ui/core/TextField'
 import LandingBanner from '../../components/LandingBanner'
+import { Form, SearchField, SearchIcon, SearchButton } from './styles'
 
 function parseQuery(query) {
   const [year, make, model] = query.split(' ')
@@ -10,7 +9,7 @@ function parseQuery(query) {
 }
 
 function SearchForm({ onSubmit }) {
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState()
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -18,9 +17,19 @@ function SearchForm({ onSubmit }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <TextField value={query} onChange={e => setQuery(e.target.value)} />
-    </form>
+    <Form onSubmit={handleSubmit}>
+      <SearchIcon />
+      <SearchField
+        autoFocus
+        placeholder="Year Make Model"
+        variant="outlined"
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+      />
+      <SearchButton type="submit" disabled={!query}>
+        Search
+      </SearchButton>
+    </Form>
   )
 }
 
