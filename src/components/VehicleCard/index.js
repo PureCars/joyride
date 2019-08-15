@@ -1,6 +1,7 @@
 import React from 'react'
 import Typography from '../Typography'
 import IdealImage from 'react-ideal-image'
+import DirectionsCar from '@material-ui/icons/DirectionsCar'
 import { Card, Title, ImageWrapper, VehicleInfo, PriceLine } from './styles'
 
 const VehicleCard = ({
@@ -20,6 +21,7 @@ const VehicleCard = ({
           srcSet={[{ src: imageUrl, width: 260 }]}
           width={260}
           height={174}
+          icons={{ error: () => <DirectionsCar style={{ fontSize: 64 }} /> }}
         />
       </ImageWrapper>
       <VehicleInfo>

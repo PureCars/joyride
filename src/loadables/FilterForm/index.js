@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import ExpandMore from '@material-ui/icons/ExpandMore'
 import Typography from '../../components/Typography'
 import mockForm from './mockForm.json'
-console.log(mockForm)
 
 function Radio() {
   return <div>radio</div>
